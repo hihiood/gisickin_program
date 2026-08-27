@@ -204,8 +204,9 @@ footer{border-top:1px solid var(--line); margin-top:16px; padding-top:22px;
     <li><a href="#s2"><span class="n">02</span><span>처음 세팅</span></a></li>
     <li><a href="#s3"><span class="n">03</span><span>등급 빨리 올리는 법</span></a></li>
     <li><a href="#s4"><span class="n">04</span><span>글작성 패턴</span></a></li>
-    <li><a href="#s5"><span class="n">05</span><span>막힐 때</span></a></li>
-    <li><a href="#s6"><span class="n">06</span><span>하루 루틴</span></a></li>
+    <li><a href="#s5"><span class="n">05</span><span>홍보 링크와 이미지</span></a></li>
+    <li><a href="#s6"><span class="n">06</span><span>막힐 때</span></a></li>
+    <li><a href="#s7"><span class="n">07</span><span>하루 루틴</span></a></li>
   </ol>
 </nav>
 
@@ -469,7 +470,70 @@ password_2</pre>
 </section>
 
 <section id="s5">
-  <h2 class="sec"><span class="num">05</span>막힐 때</h2>
+  <h2 class="sec"><span class="num">05</span>홍보 링크와 이미지</h2>
+  <p class="lede">답변에 내 링크와 이미지를 함께 넣는 기능입니다. 등급이 어느 정도 오른 뒤에 쓰시는 걸 권합니다. 초반부터 링크를 많이 넣으면 신고가 쌓입니다.</p>
+
+  <h3>몇 개마다 넣을지 정하기</h3>
+  <p>화면 가운데 <strong>N개 답변 후 링크 넣기</strong> 칸의 숫자만큼 답변할 때마다 링크를 한 번 넣습니다. 예를 들어 <code>5</code> 를 넣으면 5개째 답변에만 링크가 들어갑니다.</p>
+  <div class="note warn">
+    <span class="lbl">주의</span>
+    <p>숫자를 <strong>1로 두면 모든 답변에 링크가 들어갑니다.</strong> 광고로 판단되기 가장 쉬운 설정입니다. 계정을 오래 쓰시려면 넉넉하게 잡으세요.</p>
+  </div>
+
+  <h3>어떤 링크를 넣을지 — 링크 파일</h3>
+  <div class="tw"><table>
+    <thead><tr><th>파일</th><th>쓰이는 곳</th></tr></thead>
+    <tbody>
+      <tr><td><code>keyword.txt</code></td><td><strong>키워드 검색 답변</strong> 모드에서 사용</td></tr>
+      <tr><td><code>keyword1.txt</code> ~ <code>keyword10.txt</code></td><td><strong>실시간 QnA답변</strong> 모드에서 사용. 파일 번호가 탐색 키워드 번호와 짝입니다 — 1번 키워드로 찾은 질문에는 <code>keyword1.txt</code> 의 링크가 들어갑니다.</td></tr>
+    </tbody>
+  </table></div>
+  <p>키워드별로 다른 링크를 넣고 싶을 때 번호를 맞춰 채우시면 됩니다.</p>
+
+  <h3>링크를 어떤 모양으로 넣을지 — 발행 모드</h3>
+  <p>화면 오른쪽에서 하나를 고릅니다. <strong>반드시 하나는 선택해야 합니다.</strong></p>
+  <ul>
+    <li><strong>링크+썸네일</strong> — 링크 카드에 제목·설명·이미지가 함께 나옵니다. 가장 눈에 띕니다.</li>
+    <li><strong>링크만</strong> — 주소만 들어갑니다.</li>
+    <li><strong>썸네일만</strong> — 이미지만 들어갑니다.</li>
+  </ul>
+  <p><code>링크만</code> 과 <code>썸네일만</code> 은 추가 문의가 필요한 항목입니다.</p>
+
+  <h3>단축링크 사용하기 (네이버 QR)</h3>
+  <p>체크하면 답변에 넣는 링크를 <strong>네이버 단축링크</strong>(<code>m.site.naver.com/...</code>)로 바꿔서 넣습니다. 네이버 QR 서비스를 그대로 쓰는 방식입니다.</p>
+  <ul>
+    <li><strong>카드 모양은 그대로입니다.</strong> 단축링크가 원본으로 넘겨주기 때문에 제목·설명·썸네일이 원래대로 나옵니다.</li>
+    <li><strong>클릭 수를 볼 수 있습니다.</strong> <a href="https://qr.naver.com/statistics">qr.naver.com/statistics</a> 에서 몇 명이 눌렀는지 확인됩니다. 어떤 키워드가 실제로 유입을 만드는지 알 수 있습니다.</li>
+    <li><strong>주소가 짧아집니다.</strong> 긴 원본 주소보다 답변이 깔끔해 보입니다.</li>
+  </ul>
+  <div class="note key">
+    <span class="lbl">중요 — 하루 7개 한도</span>
+    <p>네이버는 단축링크를 <strong>하루 7개까지만</strong> 만들 수 있게 막아둡니다. 그래서 프로그램이 한 번 만든 링크를 <code>shorturl_cache.json</code> 에 저장해두고 <strong>같은 원본 링크는 계속 재사용</strong>합니다. 매번 새로 만들지 않으니 한도에 잘 안 걸립니다.</p>
+    <p>체크박스 옆 <strong>관리</strong> 버튼을 누르면 지금까지 만들어둔 목록을 보고 초기화할 수 있습니다. 초기화해도 네이버에 만들어진 QR코드가 지워지지는 않습니다.</p>
+  </div>
+  <p>링크를 자주 바꾸신다면 하루 7개 한도에 걸릴 수 있습니다. 그럴 땐 링크를 고정해두고 쓰시는 편이 낫습니다.</p>
+
+
+<figure class="narrow"><img alt="단축링크 사용하기 체크박스와 관리 버튼. 오른쪽 아래에 있습니다." src="data:image/png;base64,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">
+<figcaption>단축링크 사용하기 체크박스와 관리 버튼. 오른쪽 아래에 있습니다.</figcaption></figure>
+  <h3>이미지 넣기</h3>
+  <p><strong>이미지</strong> 체크박스를 켜고 옆의 <strong>설정</strong> 버튼에서 방식을 고릅니다.</p>
+  <div class="tw"><table>
+    <thead><tr><th>방식</th><th>동작</th><th>준비할 것</th></tr></thead>
+    <tbody>
+      <tr><td><strong>폴더에서 랜덤</strong></td><td>폴더 안 이미지 중 무작위로 하나</td><td>폴더를 지정하고 그 안에 <code>png</code> / <code>jpg</code> 를 넣어둡니다</td></tr>
+      <tr><td><strong>1개 지정</strong></td><td>항상 같은 파일</td><td>파일 하나를 선택합니다</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>폴더에서 랜덤</strong>을 권합니다. 매번 같은 이미지가 들어가면 답변이 전부 똑같아 보입니다.</p>
+  <div class="note">
+    <span class="lbl">참고</span>
+    <p>설정을 안 하고 체크만 켜두면 시작할 때 점검 팝업이 빨간색으로 알려줍니다. 폴더를 지정했는데 안에 이미지가 없어도 마찬가지입니다.</p>
+  </div>
+</section>
+
+<section id="s6">
+  <h2 class="sec"><span class="num">06</span>막힐 때</h2>
   <p class="lede">자주 나오는 상황과 원인입니다. 대부분 프로그램이 알아서 넘어가지만, 계속 반복되면 아래를 확인하세요.</p>
 
   <h3>답변이 안 달리고 계속 넘어갑니다</h3>
@@ -492,8 +556,8 @@ password_2</pre>
   <p>크롬이 업데이트되면 드라이버도 맞춰야 합니다. 프로그램이 자동으로 받아 교체하니 잠시 기다리세요. 이 과정이 매번 반복되면 프로그램을 완전히 껐다가 다시 켜보세요.</p>
 </section>
 
-<section id="s6">
-  <h2 class="sec"><span class="num">06</span>하루 루틴</h2>
+<section id="s7">
+  <h2 class="sec"><span class="num">07</span>하루 루틴</h2>
   <p class="lede">돌리기 전 한 번, 끝나고 한 번 훑으면 사고가 크게 줍니다.</p>
 
   <h3>돌리기 전</h3>
