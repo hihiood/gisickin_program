@@ -1,0 +1,21 @@
+# ── 안전장치: 코드·바이너리는 절대 올라가지 않게 전부 차단 ──
+*.py
+*.pyd
+*.pyc
+*.exe
+*.c
+*.dll
+*.zip
+*.7z
+*.pkl
+*.json
+*.bat
+*.spec
+*.log
+IDPW*
+setting*
+keyword*
+text*.txt
+__pycache__/
+build/
+dist/
